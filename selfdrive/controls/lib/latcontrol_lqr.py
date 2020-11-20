@@ -12,7 +12,7 @@ from selfdrive.ntune import nTune  # neokii 추가
 
 class LatControlLQR():
   def __init__(self, CP):
-    self.trLQR = trace1.Loger("076_conan_LQR_ctrl")   
+    # self.trLQR = trace1.Loger("076_conan_LQR_ctrl")   
     self.scale = CP.lateralTuning.lqr.scale
     self.ki = CP.lateralTuning.lqr.ki
 
@@ -133,13 +133,13 @@ class LatControlLQR():
     else:
       whoissteering = "Openpilot"
     
-    str2 = '/{} /{} /{} /{} /{} /{} /{} /{} /{} /{} /{}'.format(   
-              v_ego_kph, steering_angle, self.angle_steers_des, angle_steers_k, steeringTQ, torque_scale, self.dc_gain, self.scale, self.ki, self.output_steer, whoissteering)
-    self.trLQR.add( str2 )
+    # str2 = '/{} /{} /{} /{} /{} /{} /{} /{} /{} /{} /{}'.format(   
+    #           v_ego_kph, steering_angle, self.angle_steers_des, angle_steers_k, steeringTQ, torque_scale, self.dc_gain, self.scale, self.ki, self.output_steer, whoissteering)
+    # self.trLQR.add( str2 )
     
-    str5 = 'LQR_Set:dcgain={:06.4f}/scale={:06.1f}/ki={:05.3f}/tq={:4.1f}/u={:5.1f}/i={:5.3f}/O={:5.3f}'.format(
-              self.dc_gain, self.scale, self.ki, steeringTQ, u_lqr, self.i_lqr, self.output_steer )
-    trace1.printf2( str5 )
+    # str5 = 'LQR_Set:dcgain={:06.4f}/scale={:06.1f}/ki={:05.3f}/tq={:4.1f}/u={:5.1f}/i={:5.3f}/O={:5.3f}'.format(
+    #           self.dc_gain, self.scale, self.ki, steeringTQ, u_lqr, self.i_lqr, self.output_steer )
+    # trace1.printf2( str5 )
 
     lqr_log.steerAngle = angle_steers_k + path_plan.angleOffset
     lqr_log.i = self.i_lqr
