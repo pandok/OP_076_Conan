@@ -89,16 +89,6 @@ class LatControlLQR():
 
     self.tune.check() # neokii 추가
 
-    # ###  설정값 최적화 분석을 위한 랜덤화 임시 코드
-    #now = datetime.datetime.now() # current date and time
-    #micro_S = int(now.microsecond)
-    #if micro_S < 10000 : #1초에 한번만 랜덤변환
-    #  self.ki = random.uniform(0.015, 0.025)   
-    #  self.scale = random.uniform(1750, 1950)     
-    #  self.dc_gain = random.uniform(0.0028, 0.0032)  
-    #  steers_max = random.uniform(1.0, 1.2)
-    # ########################### 
-
     # Subtract offset. Zero angle should correspond to zero torque
     self.angle_steers_des = path_plan.angleSteers - path_plan.angleOffset
     steering_angle -= path_plan.angleOffset
